@@ -1,0 +1,121 @@
+# Импорт моделей
+from news.models import *
+
+# Создание пользователей
+u1 = User.objects.create_user(username='Chehov')
+u2 = User.objects.create_user(username='Tutchev') 
+
+#Создание авторов
+Author.objects.create(authorUser=u1)
+Author.objects.create(authorUser=u2) 
+
+
+#Создание категорий
+Category.objects.create(name='poetry')
+Category.objects.create(name='prose')  
+Category.objects.create(name='documentary')
+Category.objects.create(name='fairy')
+
+#Добавление статей и новостей
+author = Author.objects.get(id=1)
+author_2 = Author.objects.get(id=2)
+Post.objects.create(author=author, categoryType='NW', title='Последнее прости', text='Как дым мечтательной сигары')
+Post.objects.create(author=author_2, categoryType='AR', title='Еще земли печален вид', text='Душа, душа, спала и ты…')
+Post.objects.create(author=author_2, categoryType='AR', title='Летний вечер', text='Река воздушная полней, Течет меж небом и землею')
+
+#Присвоение категорий
+Post.objects.get(id=1).postCategory.add(Category.objects.get(id=1))
+Post.objects.get(id=1).postCategory.add(Category.objects.get(id=2))
+Post.objects.get(id=2).postCategory.add(Category.objects.get(id=3))
+Post.objects.get(id=2).postCategory.add(Category.objects.get(id=4))
+Post.objects.get(id=3).postCategory.add(Category.objects.get(id=1))
+Post.objects.get(id=3).postCategory.add(Category.objects.get(id=2))
+
+#Добавление комментов
+Comment.objects.create(commentPost=Post.objects.get(id=1), commentUser=Author.objects.get(id=1).authorUser, text = 'suoer, cool')       
+Comment.objects.create(commentPost=Post.objects.get(id=1), commentUser=Author.objects.get(id=1).authorUser, text = 'super, Wow')  
+Comment.objects.create(commentPost=Post.objects.get(id=2), commentUser=Author.objects.get(id=2).authorUser, text = 'very cool!')
+
+#Добавление лайков к коментам
+Comment.objects.get(id=1).like()
+Comment.objects.get(id=1).like()
+Comment.objects.get(id=2).like() 
+Comment.objects.get(id=2).like()
+Comment.objects.get(id=2).like()
+Comment.objects.get(id=3).like() 
+Comment.objects.get(id=3).like()
+Comment.objects.get(id=4).like() 
+Comment.objects.get(id=5).like() 
+Comment.objects.get(id=5).like()
+Comment.objects.get(id=5).like()
+Comment.objects.get(id=5).like()
+
+#Добавление лайков к публикациям
+Post.objects.get(id=1).like()    
+Post.objects.get(id=1).like()
+Post.objects.get(id=1).like()
+Post.objects.get(id=3).like() 
+Post.objects.get(id=3).like()
+Post.objects.get(id=3).like()
+Post.objects.get(id=3).like()
+Post.objects.get(id=2).like() 
+Post.objects.get(id=2).like()
+Post.objects.get(id=3).like()
+
+#Добавление дизлайков к публикациям 
+Post.objects.get(id=3).dislike() 
+Post.objects.get(id=1).dislike() 
+Post.objects.get(id=2).dislike()
+
+#Добавление дизлайков к комментам 
+Comment.objects.get(id=1).dislike() 
+Comment.objects.get(id=2).dislike() 
+Comment.objects.get(id=3).dislike() 
+Comment.objects.get(id=4).dislike() 
+Comment.objects.get(id=5).dislike() 
+
+#Проверка,корректировка рейтинга постов объектов
+Comment.objects.get(id=5).rating   
+Comment.objects.get(id=4).rating 
+Post.objects.get(id=3).rating    
+Post.objects.get(id=1).rating
+
+#Обновление рейтинга пользователей
+a = Author.objects.get(id=1)
+a.update_rating()
+b = Author.objects.get(id=2) 
+b.update_rating()            
+a.ratingAuthor
+b.ratingAuthor
+
+#Вывод лучшего пользователя по рейтингу
+a = Author.objects.order_by('-ratingAuthor')
+for i in a:
+     i.ratingAuthor
+     i.authorUser.username
+
+#Вывести дату добавления, username автора, рейтинг, заголовок и превью лучшей статьи, основываясь на лайках/дислайках к этой статье.
+best_post = Post.objects.order_by('-rating')[:1]
+for i in best_post:
+     i.dateCreation
+     i.author.authorUser.username
+     i.rating
+     i.title
+     i.preview
+
+#Вывести все комментарии (дата, пользователь, рейтинг, текст) к этой статье.
+comments = Comment.objects.all()
+for i in comments:
+     i.dateCreation
+     i.commentUser.username
+     i.rating
+     i.text
+
+
+
+
+
+
+
+
+
