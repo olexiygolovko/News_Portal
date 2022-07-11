@@ -6,7 +6,7 @@ import locale
 
 locale.setlocale(
     category=locale.LC_ALL,
-    locale="Russian"  # Note: do not use "de_DE" as it doesn't work
+    locale="Russian"
 )
 
 
