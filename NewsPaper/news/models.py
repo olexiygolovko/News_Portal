@@ -30,7 +30,6 @@ class Category(models.Model):
         return f'{self.name}'
 
 
-
 class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
 
@@ -67,8 +66,7 @@ class PostCategory(models.Model):
     categoryThrough = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.categoryThrough}'
-
+        return f'{self.categoryThrough} | {self.postThrough}'
 
 
 class Comment(models.Model):

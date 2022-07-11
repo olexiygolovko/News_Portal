@@ -1,7 +1,9 @@
+from django import template
 from datetime import datetime
 
-from django import template
 import locale
+
+
 locale.setlocale(
     category=locale.LC_ALL,
     locale="Russian"  # Note: do not use "de_DE" as it doesn't work
