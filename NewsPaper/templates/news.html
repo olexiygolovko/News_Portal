@@ -1,0 +1,24 @@
+{% extends 'flatpages/default.html' %}
+
+{% load censor_filter %}
+{% load custom_tags %}
+
+{% block title %}
+<h3>Новости</h3>
+{% endblock title %}
+
+{% block content %}
+<br>
+<h1>Все новости</h1>
+<p><strong>всего новостей: {{news|length}}</strong></p>
+<p><strong>{% current_time '%A %d %B %Y' %} </strong></p>
+<br>
+    {% for new in news %}
+        <a href="/news/{{new.id}}"><h4>{{new.title|censor}}</h4></a>
+        <h5>{{new.dateCreation|date:"d-m-Y"}}</h5>
+        <h5>{{new.text|truncatewords:20|censor}}</h5>
+    {% endfor %}
+<br>
+{% endblock content %}
+
+
