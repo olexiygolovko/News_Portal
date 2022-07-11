@@ -3,13 +3,15 @@ from django import template
 
 register = template.Library()
 
+
 @register.filter(name='censor')
-def censor(text):
-    badwords = ('редиска', 'дурак', 'балбес', 'придурок', 'мудак', 'мудаки')
-    sentence = text.split()
-
-    for index, word in enumerate(sentence):
-        if any(badword in word.lower() for badword in badwords):
-            sentence[index] = "".join('*' if c.isalpha() else c for c in word)
-
-    return " ".join(sentence)
+def censor(value):
+    words = value.split()
+    result = []
+    forbidden_words = ['редиска', 'дурак', 'балбес', 'придурок', 'мудак', 'мудаки']
+    for word in words:
+        if word in forbidden_words:
+            result.append(word[0] + "*"*(len(word)-2) + word[-1])
+        else:
+            result.append(word)
+    return " ".join(result)
