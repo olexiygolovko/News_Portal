@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
+from django.urls import reverse
 
 
 class Author(models.Model):
@@ -20,7 +21,12 @@ class Author(models.Model):
         self.save()
 
     def __str__(self):
-        return f'{self.authorUser} | Рейтинг: {self.ratingAuthor}'
+        return f'{self.authorUser}'
+
+
+    class Meta:
+        verbose_name = 'Автор'
+        verbose_name_plural = 'Авторы'
 
 
 class Category(models.Model):
@@ -28,6 +34,11 @@ class Category(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
 
 
 class Post(models.Model):
@@ -58,7 +69,15 @@ class Post(models.Model):
         return self.text[0:123] + '...'
 
     def __str__(self):
-        return f'{self.author} | {self.title.title()} | {self.dateCreation}'
+        return f'{self.title.title()}'
+
+
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
+
+    def get_absolute_url(self):
+        return reverse('new_detail', args=[str(self.id)])
 
 
 class PostCategory(models.Model):
@@ -67,6 +86,11 @@ class PostCategory(models.Model):
 
     def __str__(self):
         return f'{self.categoryThrough} | {self.postThrough}'
+
+
+    class Meta:
+        verbose_name = 'Категория новости'
+        verbose_name_plural = 'Категории новостей'
 
 
 class Comment(models.Model):
@@ -85,4 +109,10 @@ class Comment(models.Model):
         self.save()
 
     def __str__(self):
-        return f'{self.commentUser} | {self.text} | {self.dateCreation}'
+        return f'{self.text}'
+
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+

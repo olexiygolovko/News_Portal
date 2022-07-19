@@ -1,0 +1,56 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filter %}
+{% load custom_tags %}
+
+{% block title %}
+<h3>Новости</h3>
+{% endblock title %}
+
+{% block content %}
+<br>
+<p><strong>{% current_time '%A %d %B %Y' %} </strong></p>
+<p><strong>на странице: {{news|length}} публикаций</strong></p>
+<br>
+
+<!--Кнопка поиска-->
+<style>
+.iksweb{display: inline-block;cursor: pointer; font-size:14px;text-decoration:none;padding:16px 36px; color:#32c74b;background:#ffff0;border-radius:0px;border:2px solid #354251;}
+.iksweb:hover{background:#32c77c;color:#ffffff;border:2px solid #77c732;transition: all 0.2s ease;}
+</style>
+<a class="iksweb" href="search"   title="Поиск">Поиск</a>
+<br>
+<!--Вывод новостей-->
+<br>
+    {% for new in news %}
+        <a href="/news/{{new.id}}"><h4>{{new.title|censor}}</h4></a>
+        <h5>{{new.dateCreation|date:"d-m-Y"}}</h5>
+        <h5>{{new.text|truncatewords:20|censor}}</h5>
+    {% endfor %}
+<br>
+
+{% if is_paginated %}
+
+    {% if page_obj.has_previous %}
+        <a href="?page=1">First</a>
+        <a href="?page={{ page_obj.previous_page_number }}"><<<</a>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+            <a>{{ num }}</a>
+        {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2' %}
+            <a href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">>>></a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+<br>
+    {% endif %}
+<br>
+{% endif %}
+{% endblock content %}
+
+

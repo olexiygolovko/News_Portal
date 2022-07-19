@@ -37,10 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'news',
     'django.contrib.sites',
     'django.contrib.flatpages',
     'fpages',
+    'news',
+    'django_filters',
 ]
 
 SITE_ID = 1
