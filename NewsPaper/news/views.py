@@ -1,8 +1,11 @@
+from datetime import datetime
+
 from django.views.generic import ListView, DetailView, \
     CreateView, UpdateView, DeleteView
-from .models import Post
+from .models import Post, Author
 from .filters import NewsFilter
 from .forms import NewsForm
+
 
 
 
