@@ -1,9 +1,13 @@
+from datetime import datetime
 from django.views.generic import ListView, DetailView, \
     CreateView, UpdateView, DeleteView
-from .models import Post
-from .filters import NewsFilter
-from .forms import NewsForm
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
+from .models import Post, Author
+from .filters import NewsFilter
+from .forms import NewsForm, ProfileForm
+
+from django.contrib.auth.models import User
 
 
 
@@ -39,6 +43,7 @@ class NewsDetail(DetailView):
     context_object_name = 'news'
 
 
+
 class NewsSearchView(ListView):
     model = Post
     ordering = ['-dateCreation']
@@ -60,19 +65,43 @@ class NewsSearchView(ListView):
         return context
 
 
-class NewsCreate(CreateView):
+class NewsCreate(LoginRequiredMixin, CreateView):
     form_class = NewsForm
     model = Post
     template_name = 'news/news_edit.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_author'] = self.request.user.groups.filter(name='authors').exists()
+        return context
 
 class NewsEdit(UpdateView):
     form_class = NewsForm
     model = Post
     template_name = 'news/news_edit.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_author'] = self.request.user.groups.filter(name='authors').exists()
+        return context
+
+    def get_object(self, **kwargs):
+        pk_id = self.kwargs.get('pk')
+        return Post.objects.get(pk=pk_id)
+
 
 class NewsDelete(DeleteView):
     model = Post
     template_name = 'news/news_delete.html'
     success_url = '/news/'
+
+
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
+    model = User
+    template_name = 'profile_update.html'
+    form_class = ProfileForm
+    success_url = '/news/'
+
+    def get_object(self, **kwargs):
+        pk_id = self.kwargs.get('pk')
+        return Post.objects.get(pk=pk_id)

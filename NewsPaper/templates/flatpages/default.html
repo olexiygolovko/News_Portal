@@ -36,14 +36,25 @@
                    <a class="nav-link" href="/news/">Новости</a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="/service/">Услуги</a>
+                   <a class="nav-link" href="/news/search/">Поиск</a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="/documents/">Документы</a>
-               </li>
+                   <a class="nav-link" href="/contacts/">Контакты<p></p></a>
                <li class="nav-item">
-                   <a class="nav-link" href="/contacts/">Контакты</a>
+                   <a class="nav-link" href="/news/create/"><div style="text-indent:95px;">Создать публикацию</div></a>
                </li>
+               <p class="navbar-nav nav-item" style="font-size: 1.2rem">
+                    {% if is_author %}
+                        <a class="nav-link" href="/account/profile/">Пользователь: {{ request.user.username }}</a>
+                        <a class="nav-link" href="/accounts/logout">Выход</a>
+                    {% elif request.user.pk %}
+                        <a class="nav-link" href="/account/profile/">Пользователь: {{ request.user.username }}</a>
+                        <a class="nav-link" href="/accounts/logout">Выход</a>
+                    {% else %}
+                        <a class="nav-link" href="/accounts/login/">Вход</a>
+                         <a class="nav-link" href="/accounts/signup/">Регистрация</a>
+                    {% endif %}
+                </p>
            </ul>
        </div>
    </div>
