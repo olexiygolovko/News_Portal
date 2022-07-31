@@ -1,15 +1,12 @@
-from datetime import datetime
 from django.views.generic import ListView, DetailView, \
     CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
-from .models import Post, Author
+from .models import Post, Author, Subscribers
 from .filters import NewsFilter
-from .forms import NewsForm, ProfileForm
+from .forms import NewsForm, ProfileForm, SubscribeForm
 
 from django.contrib.auth.models import User
-
-
 
 
 class NewsList(ListView):
@@ -41,7 +38,6 @@ class NewsDetail(DetailView):
     model = Post
     template_name = 'news/new.html'
     context_object_name = 'news'
-
 
 
 class NewsSearchView(ListView):
@@ -105,3 +101,19 @@ class ProfileUpdate(LoginRequiredMixin, UpdateView):
     def get_object(self, **kwargs):
         pk_id = self.kwargs.get('pk')
         return Post.objects.get(pk=pk_id)
+
+
+class Subscribe(LoginRequiredMixin, CreateView):
+    model = Subscribers
+    template_name = 'news/subscribe.html'
+    form_class = SubscribeForm
+    success_url = '/news/'
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['prefix'] = self.request.user
+        return kwargs
+
+    def form_valid(self, form):
+        form.instance.subscriber = self.request.user
+        return super().form_valid(form)

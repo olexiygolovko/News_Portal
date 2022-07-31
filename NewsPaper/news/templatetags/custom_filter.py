@@ -1,4 +1,5 @@
 from django import template
+from django.contrib.auth.models import User
 
 
 register = template.Library()
@@ -15,3 +16,4 @@ def censor(value):
         else:
             result.append(word)
     return " ".join(result)
+

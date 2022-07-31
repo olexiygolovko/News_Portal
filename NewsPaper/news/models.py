@@ -29,8 +29,10 @@ class Author(models.Model):
         verbose_name_plural = 'Авторы'
 
 
+
 class Category(models.Model):
     name = models.CharField(max_length=64, unique=True)
+    subscriber = models.ManyToManyField(User, through='Subscribers')
 
     def __str__(self):
         return f'{self.name}'
@@ -116,3 +118,15 @@ class Comment(models.Model):
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
 
+
+class Subscribers(models.Model):
+    subscriber = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.subscriber}  {self.category}'
+
+
+    class Meta:
+        verbose_name = 'Подписка'
+        verbose_name_plural = 'Подписки'

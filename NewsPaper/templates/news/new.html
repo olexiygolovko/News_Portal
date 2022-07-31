@@ -10,4 +10,15 @@
 <h5> {{ news.dateCreation|date:"d-m-Y" }}</h5>
 <h5> {{ news.text|censor}}</h5>
 <h5> {{ news.author }}</h5>
+
+    <a href="{% url 'news_edit' news.id %}">
+            <button>
+                Редактировать
+            </button>
+        </a>
+    <a href="{% url 'news_delete' news.id %}">
+            <button>
+                Удалить
+            </button>
+    </a>
 {% endblock content %}
