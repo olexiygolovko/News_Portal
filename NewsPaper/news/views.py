@@ -1,12 +1,15 @@
 from django.views.generic import ListView, DetailView, \
     CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User, Group
+from django.shortcuts import redirect
 
 from .models import Post, Author, Subscribers
 from .filters import NewsFilter
 from .forms import NewsForm, ProfileForm, SubscribeForm
 
-from django.contrib.auth.models import User
+
 
 
 class NewsList(ListView):
@@ -64,6 +67,7 @@ class NewsSearchView(ListView):
 class NewsCreate(LoginRequiredMixin, CreateView):
     form_class = NewsForm
     model = Post
+    permission_required = ('accounts.add_post', 'accounts.change_post')
     template_name = 'news/news_edit.html'
 
     def get_context_data(self, **kwargs):
@@ -71,9 +75,10 @@ class NewsCreate(LoginRequiredMixin, CreateView):
         context['is_author'] = self.request.user.groups.filter(name='authors').exists()
         return context
 
-class NewsEdit(UpdateView):
+class NewsEdit(LoginRequiredMixin, UpdateView):
     form_class = NewsForm
     model = Post
+    permission_required = ('accounts.add_post', 'accounts.change_post')
     template_name = 'news/news_edit.html'
 
     def get_context_data(self, **kwargs):
@@ -86,21 +91,38 @@ class NewsEdit(UpdateView):
         return Post.objects.get(pk=pk_id)
 
 
-class NewsDelete(DeleteView):
+class NewsDelete(LoginRequiredMixin, DeleteView):
+    form_class = NewsForm
     model = Post
+    permission_required = ('accounts.add_post', 'accounts.change_post')
     template_name = 'news/news_delete.html'
     success_url = '/news/'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_author'] = self.request.user.groups.filter(name='authors').exists()
+        return context
 
 
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = User
-    template_name = 'profile_update.html'
+    template_name = 'news/profile_update.html'
     form_class = ProfileForm
     success_url = '/news/'
 
     def get_object(self, **kwargs):
         pk_id = self.kwargs.get('pk')
         return Post.objects.get(pk=pk_id)
+
+
+@login_required
+def upgrade_me(request):
+    user = request.user
+    authors_group = Group.objects.get(name='authors')
+    if not request.user.groups.filter(name='authors').exists():
+        authors_group.user_set.add(user)
+        Author.objects.create(user=user)
+    return redirect('/news/')
 
 
 class Subscribe(LoginRequiredMixin, CreateView):

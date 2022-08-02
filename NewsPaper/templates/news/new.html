@@ -6,19 +6,24 @@
 {% endblock title %}
 
 {% block content %}
+<style>
+.iksweb{display: inline-block;cursor: pointer; font-size:14px;text-decoration:none;padding:16px 36px; color:#32c74b;background:#ffff0;border-radius:0px;border:2px solid #354251;}
+.iksweb:hover{background:#32c77c;color:#ffffff;border:2px solid #77c732;transition: all 0.2s ease;}
+</style>
 <h4> {{ news.title|censor}}</h4>
+<hr>
 <h5> {{ news.dateCreation|date:"d-m-Y" }}</h5>
+<hr>
 <h5> {{ news.text|censor}}</h5>
+<hr>
 <h5> {{ news.author }}</h5>
 
-    <a href="{% url 'news_edit' news.id %}">
-            <button>
-                Редактировать
-            </button>
-        </a>
-    <a href="{% url 'news_delete' news.id %}">
-            <button>
-                Удалить
-            </button>
-    </a>
+<hr>
+{% if is_not_authors %}
+     <button> <a href="/sign/upgrade"> Стать автором </a> </button>
+{% else %}
+    <a class="iksweb" href="{% url 'news_delete' news.id %}"  title="Удалить">Удалить</a>
+    <a class="iksweb" href="{% url 'news_edit' news.id %}"  title="Редактировать">Редактировать</a>
+{% endif %}
+
 {% endblock content %}

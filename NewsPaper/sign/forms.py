@@ -9,3 +9,4 @@ class BasicSignupForm(SignupForm):
         common_group = Group.objects.get(name='common')
         common_group.user_set.add(user)
         return user
+

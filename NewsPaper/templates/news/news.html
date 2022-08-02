@@ -13,22 +13,25 @@
 <p><strong>на странице: {{news|length}} публикаций</strong></p>
 <br>
 
-<!--Кнопка поиска-->
+<!--Кнопка поиска, кнопка подписки на категории новостей-->
 <style>
 .iksweb{display: inline-block;cursor: pointer; font-size:14px;text-decoration:none;padding:16px 36px; color:#32c74b;background:#ffff0;border-radius:0px;border:2px solid #354251;}
 .iksweb:hover{background:#32c77c;color:#ffffff;border:2px solid #77c732;transition: all 0.2s ease;}
 </style>
 <a class="iksweb" href="search"   title="Поиск">Поиск</a>
-<br>
+<a class="iksweb" href="subscribe"   title="Подписаться на новости">Подписаться на новости</a>
+<hr>
 <!--Вывод новостей-->
 <br>
     {% for new in news %}
         <a href="/news/{{new.id}}"><h4>{{new.title|censor}}</h4></a>
         <h5>{{new.dateCreation|date:"d-m-Y"}}</h5>
         <h5>{{new.text|truncatewords:20|censor}}</h5>
+        <hr>
     {% endfor %}
 <br>
 
+<!--Пагинация-->
 {% if is_paginated %}
 
     {% if page_obj.has_previous %}

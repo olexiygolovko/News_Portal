@@ -4,13 +4,13 @@
 <br/><br/>
 <h2>Страница авторизованного пользователя {{request.user.username}}</h2>
 <div>  </div>
-
-{% if is_authors and 'is_not_authors' %}
+<hr>
+{% if is_authors and is_not_authors %}
 <h2>Статус - Автор</h2>
 {% else %}
 <button> <a href="/sign/upgrade"> Стать автором </a> </button>
 <h2>Статус - Пользователь</h2>
 {% endif %}
-
+<hr>
 <button> <a href="/sign/logout">Выйти</a> </button>
 {% endblock %}
