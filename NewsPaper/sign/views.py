@@ -13,20 +13,11 @@ class BaseRegisterView(CreateView):
     success_url = '/'
 
 
-# @login_required
-# def upgrade_me(request):
-#     user = request.user
-#     authors_group = Group.objects.get(name='authors')
-#     if not request.user.groups.filter(name='authors').exists():
-#         authors_group.user_set.add(user)
-#         Author.objects.create(authorUser=request.user)
-#     return redirect('/news/')
-
 @login_required
 def upgrade_me(request):
     user = request.user
     authors_group = Group.objects.get(name='authors')
     if not request.user.groups.filter(name='authors').exists():
         authors_group.user_set.add(user)
-        Author.objects.create(user=user)
+        Author.objects.create(authorUser=request.user)
     return redirect('/news/')

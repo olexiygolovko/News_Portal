@@ -111,8 +111,8 @@ class ProfileUpdate(LoginRequiredMixin, UpdateView):
     success_url = '/news/'
 
     def get_object(self, **kwargs):
-        pk_id = self.kwargs.get('pk')
-        return Post.objects.get(pk=pk_id)
+        id = self.kwargs.get('pk')
+        return Post.objects.get(pk=id)
 
 
 @login_required
@@ -121,7 +121,7 @@ def upgrade_me(request):
     authors_group = Group.objects.get(name='authors')
     if not request.user.groups.filter(name='authors').exists():
         authors_group.user_set.add(user)
-        Author.objects.create(user=user)
+        Author.objects.create(authorUser=request.user)
     return redirect('/news/')
 
 

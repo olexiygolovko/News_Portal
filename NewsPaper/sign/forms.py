@@ -1,5 +1,6 @@
 from allauth.account.forms import SignupForm
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
+from django.forms import ModelForm
 
 
 class BasicSignupForm(SignupForm):
@@ -10,3 +11,13 @@ class BasicSignupForm(SignupForm):
         common_group.user_set.add(user)
         return user
 
+
+class ProfileForm(ModelForm):
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'email',
+            'first_name',
+            'last_name',
+        ]
