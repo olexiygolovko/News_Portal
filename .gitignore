@@ -1,5 +1,5 @@
 venv
 .idea
-*/*/__pycache__
-newspaper/.env
+NewsPaper/news/__pycache__
+NewsPaper/.env
 
