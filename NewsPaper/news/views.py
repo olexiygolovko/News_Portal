@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.shortcuts import redirect
 
-from .models import Post, Author, Subscribers
+from .models import Post, Author, Subscribers, Category
 from .filters import NewsFilter
 from .forms import NewsForm, ProfileForm, SubscribeForm
 

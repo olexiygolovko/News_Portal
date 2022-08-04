@@ -9,8 +9,13 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+from dotenv import load_dotenv
 import os
 from pathlib import Path
+
+load_dotenv()
+env_path = Path('.')/'.env'
+load_dotenv(dotenv_path=env_path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-hi@l^^@-+*t#wj_y4e4vby$29jlj=x#h1*u!ydi6(t%frlw)4f'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -161,11 +166,11 @@ ACCOUNT_FORMS = {'signup': 'sign.models.BasicSignupForm'}
 
 EMAIL_HOST = 'smtp.yandex.ru'  # адрес сервера Яндекс-почты для всех один и тот же
 EMAIL_PORT = 465  # порт smtp сервера тоже одинаковый
-EMAIL_HOST_USER = 'ogolovko92'
-EMAIL_HOST_PASSWORD = 'SkillGolovko92'  # нужно спрятать
+EMAIL_HOST_USER = os.getenv("EMAIL_USER")
+EMAIL_HOST_PASSWORD = os.getenv("SECRET_KEY")  # прячем в .env
 EMAIL_USE_SSL = True
 
-DEFAULT_FROM_EMAIL = 'ogolovko92@yandex.ru'
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_EMAIL")
 
 # формат даты, которую будет воспринимать наш задачник
 APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
