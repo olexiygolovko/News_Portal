@@ -1,5 +1,6 @@
 venv
 .idea
+__pycache__/
 NewsPaper/news/__pycache__
 NewsPaper/accounts/__pycache__
 NewsPaper/fpages/__pycache__
@@ -7,4 +8,3 @@ NewsPaper/NewsPaper/__pycache__
 NewsPaper/protect/__pycache__
 NewsPaper/sign/__pycache__
 NewsPaper/.env
-
