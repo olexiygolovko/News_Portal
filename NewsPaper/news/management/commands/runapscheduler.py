@@ -71,10 +71,10 @@ class Command(BaseCommand):
             news_sender,
 
             # для проверки отправки временно задано время срабатывания каждые 10 секунд
-            trigger=CronTrigger(second="*/30"),
+            # trigger=CronTrigger(second="*/30"),
 
             # отправляем письма подписчикам в понедельник в 8 утра
-            # trigger=CronTrigger(day_of_week="mon", hour="08", minute="00"),
+            trigger=CronTrigger(day_of_week="mon", hour="08", minute="00"),
 
             # То же, что и интервал, но задача тригера таким образом более понятна django
             id="news_sender",  # уникальный айди

@@ -1,13 +1,16 @@
 from django.views.generic import ListView, DetailView, \
     CreateView, UpdateView, DeleteView
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.shortcuts import redirect
 
+
 from .models import Post, Author, Subscribers, Category
 from .filters import NewsFilter
 from .forms import NewsForm, ProfileForm, SubscribeForm
+from .tasks import weekly_post_mail
+
 
 
 
@@ -18,6 +21,7 @@ class NewsList(ListView):
     template_name = 'news/news.html'
     context_object_name = 'news'
     paginate_by = 10
+
 
     def get_queryset(self):
         # Получаем обычный запрос
@@ -65,21 +69,30 @@ class NewsSearchView(ListView):
 
 
 class NewsCreate(LoginRequiredMixin, CreateView):
-    form_class = NewsForm
+    permission_required = ('news.add_post',)
     model = Post
-    permission_required = ('accounts.add_post', 'accounts.change_post')
     template_name = 'news/news_edit.html'
+    context_object_name = 'news_create'
+    form_class = NewsForm
+    weekly_post_mail()
+
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['is_author'] = self.request.user.groups.filter(name='authors').exists()
         return context
 
+    def get_object(self, **kwargs):
+        pk_id = self.kwargs.get('pk')
+        return Post.objects.get(pk=pk_id)
+
 class NewsEdit(LoginRequiredMixin, UpdateView):
     form_class = NewsForm
     model = Post
-    permission_required = ('accounts.add_post', 'accounts.change_post')
+    permission_required = ('news.change_post',)
     template_name = 'news/news_edit.html'
+    context_object_name = 'news_edit'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -92,9 +105,7 @@ class NewsEdit(LoginRequiredMixin, UpdateView):
 
 
 class NewsDelete(LoginRequiredMixin, DeleteView):
-    form_class = NewsForm
     model = Post
-    permission_required = ('accounts.add_post', 'accounts.change_post')
     template_name = 'news/news_delete.html'
     success_url = '/news/'
 
@@ -130,6 +141,7 @@ class Subscribe(LoginRequiredMixin, CreateView):
     template_name = 'news/subscribe.html'
     form_class = SubscribeForm
     success_url = '/news/'
+
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()

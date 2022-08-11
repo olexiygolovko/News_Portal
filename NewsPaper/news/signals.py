@@ -31,16 +31,3 @@ def notify_subscriber(sender, instance, **kwargs):
             msg.attach_alternative(html_content, "text/html")
 
             msg.send()
-
-
-@receiver(m2m_changed, sender=PostCategory)
-def notify_subscriber(sender, instance, **kwargs):
-    for cat in instance.postCategory.all():
-        subscribers = Subscribers.objects.filter(category=cat)
-        for person in subscribers:
-            send_mail(
-                f'Новая статья в категории {cat}: {instance.title}',
-                f'{instance.text}',
-                'ogolovko92@yandex.ru',
-                [person.subscriber.email],
-            )
