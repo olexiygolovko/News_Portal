@@ -81,6 +81,9 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('new_detail', args=[str(self.id)])
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)  # вызываем метод родителя, чтобы объект сохранился
+
 
 class PostCategory(models.Model):
     postThrough = models.ForeignKey(Post, on_delete=models.CASCADE)

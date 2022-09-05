@@ -4,15 +4,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.shortcuts import redirect
+from django.core.cache import cache
 
 
-from .models import Post, Author, Subscribers, Category
+
+from .models import Post, Author, Subscribers
 from .filters import NewsFilter
 from .forms import NewsForm, ProfileForm, SubscribeForm
-from .tasks import weekly_post_mail
-
-
-
 
 
 class NewsList(ListView):
@@ -21,7 +19,6 @@ class NewsList(ListView):
     template_name = 'news/news.html'
     context_object_name = 'news'
     paginate_by = 10
-
 
     def get_queryset(self):
         # Получаем обычный запрос
@@ -45,6 +42,18 @@ class NewsDetail(DetailView):
     model = Post
     template_name = 'news/new.html'
     context_object_name = 'news'
+
+    def get_object(self, *args, **kwargs):  # переопределяем метод получения объекта, как ни странно
+
+        obj = cache.get(f'news-{self.kwargs["pk"]}',
+                        None)  # кэш очень похож на словарь, и метод get действует так же. Он забирает значение по ключу, если его нет, то забирает None.
+
+        # если объекта нет в кэше, то получаем его и записываем в кэш
+        if not obj:
+            obj = super().get_object(queryset=self.queryset)
+            cache.set(f'news-{self.kwargs["pk"]}', obj)
+
+        return obj
 
 
 class NewsSearchView(ListView):
@@ -74,9 +83,6 @@ class NewsCreate(LoginRequiredMixin, CreateView):
     template_name = 'news/news_edit.html'
     context_object_name = 'news_create'
     form_class = NewsForm
-    weekly_post_mail()
-
-
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -86,6 +92,7 @@ class NewsCreate(LoginRequiredMixin, CreateView):
     def get_object(self, **kwargs):
         pk_id = self.kwargs.get('pk')
         return Post.objects.get(pk=pk_id)
+
 
 class NewsEdit(LoginRequiredMixin, UpdateView):
     form_class = NewsForm
@@ -141,7 +148,6 @@ class Subscribe(LoginRequiredMixin, CreateView):
     template_name = 'news/subscribe.html'
     form_class = SubscribeForm
     success_url = '/news/'
-
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
