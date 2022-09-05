@@ -13,7 +13,7 @@ class Command(BaseCommand):
         answer = input()  # считываем подтверждение
 
         if answer == 'yes':  # в случае подтверждения действительно удаляем все товары
-            Post.objects.get(pk=1).delete()
+            Post.objects.get(pk=1).categoryType.delete(pk=1)
             self.stdout.write(self.style.SUCCESS('Succesfully wiped news!'))
             return
 
