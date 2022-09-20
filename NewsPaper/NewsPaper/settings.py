@@ -68,6 +68,118 @@ MIDDLEWARE = [
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'style': '{',
+    'formatters': {
+        'format1': {
+            'format': '%(asctime)s %(levelname)s %(message)s'
+        },
+        'format2': {
+            'format': '%(asctime)s %(levelname)s %(message)s %(pathname)s'
+        },
+        'format3': {
+            'format': '%(asctime)s %(levelname)s %(message)s %(pathname)s %(exc_info)s'
+        },
+        'format4': {
+            'format': '%(asctime)s %(levelname)s %(module)s %(message)s'
+        },
+    },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+    },
+    'handlers': {
+        'console1': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'format1',
+        },
+        'console2': {
+            'level': 'WARNING',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'format2',
+        },
+        'console3': {
+            'level': 'ERROR',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'format3',
+        },
+        'general': {
+            'level': 'INFO',
+            'filters': ['require_debug_false'],
+            'class': 'logging.FileHandler',
+            'formatter': 'format4',
+            'filename': os.path.join(BASE_DIR, 'logs/general.log'),
+        },
+        'errors': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'formatter': 'format3',
+            'filename': os.path.join(BASE_DIR, 'logs/errors.log'),
+        },
+        'security': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'format4',
+            'filename': os.path.join(BASE_DIR, 'logs/security.log'),
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler',
+            'formatter': 'format2',
+        },
+        'news': {
+            'level': 'INFO',
+            'filters': ['require_debug_false'],
+            'class': 'logging.FileHandler',
+            'formatter': 'format1',
+            'filename': os.path.join(BASE_DIR, 'logs/news.log'),
+        },
+    },
+    'loggers': {
+        'news.views': {
+            'handlers': ['news'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'django': {
+            'handlers': ['console1', 'console2', 'console3', 'general'],
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['errors', 'mail_admins'],
+            'propagate': False,
+        },
+        'django.server': {
+            'handlers': ['errors', 'mail_admins'],
+            'propagate': False,
+        },
+        'django.template': {
+            'handlers': ['errors'],
+            'propagate': False,
+        },
+        'django.db_backends': {
+            'handlers': ['errors'],
+            'propagate': False,
+        },
+        'django.security': {
+            'handlers': ['security'],
+            'propagate': False,
+        },
+    },
+}
+
+
 ROOT_URLCONF = 'NewsPaper.urls'
 
 TEMPLATES = [

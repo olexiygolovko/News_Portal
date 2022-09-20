@@ -5,6 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.shortcuts import redirect
 from django.core.cache import cache
+import logging
+
+logger = logging.getLogger('news.views')
 
 
 
@@ -140,6 +143,7 @@ def upgrade_me(request):
     if not request.user.groups.filter(name='authors').exists():
         authors_group.user_set.add(user)
         Author.objects.create(authorUser=request.user)
+        logger.info(f'User {user} join the "authors" group.')
     return redirect('/news/')
 
 

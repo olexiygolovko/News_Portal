@@ -1,0 +1,230 @@
+2022-09-20 12:09:15,916 ERROR Internal Server Error: /news/create/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'smtplib.SMTPDataError'>, SMTPDataError(554, b'5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1663664956-Q1qzurx9FU-9Gjaek9k'), <traceback object at 0x00000292627179C0>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 119, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\forms\models.py", line 549, in save
+    self._save_m2m()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\forms\models.py", line 530, in _save_m2m
+    f.save_form_data(self.instance, cleaned_data[f.name])
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related.py", line 1928, in save_form_data
+    getattr(instance, self.attname).set(data)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1130, in set
+    self.add(*new_objs, through_defaults=through_defaults)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1048, in add
+    self._add_items(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1313, in _add_items
+    signals.m2m_changed.send(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\dispatch\dispatcher.py", line 176, in send
+    return [
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\dispatch\dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\newspaper\news\signals.py", line 33, in notify_subscriber
+    msg.send()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\backends\smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\backends\smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "C:\Users\olexi\AppData\Local\Programs\Python\Python38\lib\smtplib.py", line 901, in sendmail
+    raise SMTPDataError(code, resp)
+smtplib.SMTPDataError: (554, b'5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1663664956-Q1qzurx9FU-9Gjaek9k')
+2022-09-20 12:09:15,925 ERROR "POST /news/create/ HTTP/1.1" 500 168729 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2022-09-20 12:09:28,123 ERROR Internal Server Error: /news/create/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'smtplib.SMTPDataError'>, SMTPDataError(554, b'5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1663664968-uhWgbbcbbC-9SiqGmVJ'), <traceback object at 0x000002926287BB00>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 119, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\forms\models.py", line 549, in save
+    self._save_m2m()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\forms\models.py", line 530, in _save_m2m
+    f.save_form_data(self.instance, cleaned_data[f.name])
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related.py", line 1928, in save_form_data
+    getattr(instance, self.attname).set(data)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1130, in set
+    self.add(*new_objs, through_defaults=through_defaults)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1048, in add
+    self._add_items(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1313, in _add_items
+    signals.m2m_changed.send(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\dispatch\dispatcher.py", line 176, in send
+    return [
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\dispatch\dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\newspaper\news\signals.py", line 33, in notify_subscriber
+    msg.send()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\backends\smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\backends\smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "C:\Users\olexi\AppData\Local\Programs\Python\Python38\lib\smtplib.py", line 901, in sendmail
+    raise SMTPDataError(code, resp)
+smtplib.SMTPDataError: (554, b'5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1663664968-uhWgbbcbbC-9SiqGmVJ')
+2022-09-20 12:09:28,125 ERROR "POST /news/create/ HTTP/1.1" 500 168729 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2022-09-20 12:11:51,111 ERROR Internal Server Error: /news/73/edit/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'smtplib.SMTPDataError'>, SMTPDataError(554, b'5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1663665111-918vTNevKM-Bpiepdss'), <traceback object at 0x0000029263AFC300>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 119, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 208, in post
+    return super().post(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\forms\models.py", line 549, in save
+    self._save_m2m()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\forms\models.py", line 530, in _save_m2m
+    f.save_form_data(self.instance, cleaned_data[f.name])
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related.py", line 1928, in save_form_data
+    getattr(instance, self.attname).set(data)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1130, in set
+    self.add(*new_objs, through_defaults=through_defaults)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1048, in add
+    self._add_items(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1313, in _add_items
+    signals.m2m_changed.send(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\dispatch\dispatcher.py", line 176, in send
+    return [
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\dispatch\dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\newspaper\news\signals.py", line 33, in notify_subscriber
+    msg.send()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\backends\smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\backends\smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "C:\Users\olexi\AppData\Local\Programs\Python\Python38\lib\smtplib.py", line 901, in sendmail
+    raise SMTPDataError(code, resp)
+smtplib.SMTPDataError: (554, b'5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1663665111-918vTNevKM-Bpiepdss')
+2022-09-20 12:11:51,113 ERROR "POST /news/73/edit/ HTTP/1.1" 500 168430 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2022-09-20 12:37:47,596 ERROR Internal Server Error: /news/73/edit/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'smtplib.SMTPDataError'>, SMTPDataError(554, b'5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1663666668-Iui47z4c3Y-bliqhcTi'), <traceback object at 0x000001EE668AA500>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 119, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 208, in post
+    return super().post(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\forms\models.py", line 549, in save
+    self._save_m2m()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\forms\models.py", line 530, in _save_m2m
+    f.save_form_data(self.instance, cleaned_data[f.name])
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related.py", line 1928, in save_form_data
+    getattr(instance, self.attname).set(data)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1130, in set
+    self.add(*new_objs, through_defaults=through_defaults)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1048, in add
+    self._add_items(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1313, in _add_items
+    signals.m2m_changed.send(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\dispatch\dispatcher.py", line 176, in send
+    return [
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\dispatch\dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\newspaper\news\signals.py", line 33, in notify_subscriber
+    msg.send()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\backends\smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\backends\smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "C:\Users\olexi\AppData\Local\Programs\Python\Python38\lib\smtplib.py", line 901, in sendmail
+    raise SMTPDataError(code, resp)
+smtplib.SMTPDataError: (554, b'5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1663666668-Iui47z4c3Y-bliqhcTi')
+2022-09-20 12:37:47,600 ERROR "POST /news/73/edit/ HTTP/1.1" 500 168915 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2022-09-20 12:43:08,148 ERROR Internal Server Error: /news/73/edit/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'smtplib.SMTPDataError'>, SMTPDataError(554, b'5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1663666988-RJBj6AqzN1-h8iGlIH8'), <traceback object at 0x0000021B46E2DF40>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 119, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 208, in post
+    return super().post(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\forms\models.py", line 549, in save
+    self._save_m2m()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\forms\models.py", line 530, in _save_m2m
+    f.save_form_data(self.instance, cleaned_data[f.name])
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related.py", line 1928, in save_form_data
+    getattr(instance, self.attname).set(data)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1130, in set
+    self.add(*new_objs, through_defaults=through_defaults)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1048, in add
+    self._add_items(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1313, in _add_items
+    signals.m2m_changed.send(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\dispatch\dispatcher.py", line 176, in send
+    return [
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\dispatch\dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\newspaper\news\signals.py", line 33, in notify_subscriber
+    msg.send()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\backends\smtp.py", line 131, in send_messages
+    sent = self._send(message)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\mail\backends\smtp.py", line 149, in _send
+    self.connection.sendmail(
+  File "C:\Users\olexi\AppData\Local\Programs\Python\Python38\lib\smtplib.py", line 901, in sendmail
+    raise SMTPDataError(code, resp)
+smtplib.SMTPDataError: (554, b'5.7.1 Message rejected under suspicion of SPAM; https://ya.cc/1IrBc 1663666988-RJBj6AqzN1-h8iGlIH8')
+2022-09-20 12:43:08,154 ERROR "POST /news/73/edit/ HTTP/1.1" 500 168922 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
