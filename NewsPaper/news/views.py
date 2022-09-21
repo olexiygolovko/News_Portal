@@ -103,6 +103,7 @@ class NewsEdit(LoginRequiredMixin, UpdateView):
     permission_required = ('news.change_post',)
     template_name = 'news/news_edit.html'
     context_object_name = 'news_edit'
+    logger.info(f'the article has been changed')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -118,6 +119,7 @@ class NewsDelete(LoginRequiredMixin, DeleteView):
     model = Post
     template_name = 'news/news_delete.html'
     success_url = '/news/'
+    logger.info(f'the article has been delete')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
