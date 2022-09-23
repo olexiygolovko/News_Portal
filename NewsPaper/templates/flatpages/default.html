@@ -72,7 +72,11 @@
                     </select>
                     <input type="submit" value="set">
                 </form>
-
+               {% for model in models %}
+                    <div class="model-class">
+                    {{ model.name }}
+                    </div>
+               {% endfor %}
            </ul>
        </div>
    </div>

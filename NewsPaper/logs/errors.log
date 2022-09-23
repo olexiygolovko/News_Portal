@@ -494,3 +494,336 @@ Traceback (most recent call last):
     raise TemplateSyntaxError(
 django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '"Удаляем' from '"Удаляем'
 2022-09-23 13:21:55,206 ERROR "GET /news/73/delete/ HTTP/1.1" 500 173339 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2022-09-23 16:43:48,187 ERROR Internal Server Error: /admin/news/postcategory/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_category.name_ru'), <traceback object at 0x000002AA11BE7AC0>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\options.py", line 672, in get_field
+    return self.fields_map[field_name]
+KeyError: '__str__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\utils.py", line 271, in lookup_field
+    f = _get_non_gfk_field(opts, name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\utils.py", line 302, in _get_non_gfk_field
+    field = opts.get_field(name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\options.py", line 674, in get_field
+    raise FieldDoesNotExist(
+django.core.exceptions.FieldDoesNotExist: PostCategory has no field named '__str__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 187, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+KeyError: 'categoryThrough'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_category.name_ru
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\library.py", line 260, in render
+    _dict = self.func(*resolved_args, **resolved_kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 336, in result_list
+    "results": list(results(cl)),
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 312, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 303, in __init__
+    super().__init__(*items)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 213, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\utils.py", line 284, in lookup_field
+    value = attr()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\newspaper\news\models.py", line 93, in __str__
+    return f'{self.categoryThrough} | {self.postThrough}'
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 205, in __get__
+    rel_obj = self.get_object(instance)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 168, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 492, in get
+    num = len(clone)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 302, in __len__
+    self._fetch_all()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_category.name_ru
+2022-09-23 16:43:48,193 ERROR "GET /admin/news/postcategory/ HTTP/1.1" 500 524924 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2022-09-23 16:45:09,918 ERROR Internal Server Error: /admin/news/category/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_category.name_ru'), <traceback object at 0x000002AA11D363C0>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_category.name_ru
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\options.py", line 683, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\options.py", line 2063, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 302, in __len__
+    self._fetch_all()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_category.name_ru
+2022-09-23 16:45:09,922 ERROR "GET /admin/news/category/ HTTP/1.1" 500 160543 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2022-09-23 16:45:12,974 ERROR Internal Server Error: /admin/news/postcategory/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_category.name_ru'), <traceback object at 0x000002AA13026400>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\options.py", line 672, in get_field
+    return self.fields_map[field_name]
+KeyError: '__str__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\utils.py", line 271, in lookup_field
+    f = _get_non_gfk_field(opts, name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\utils.py", line 302, in _get_non_gfk_field
+    field = opts.get_field(name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\options.py", line 674, in get_field
+    raise FieldDoesNotExist(
+django.core.exceptions.FieldDoesNotExist: PostCategory has no field named '__str__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 187, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+KeyError: 'categoryThrough'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_category.name_ru
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\library.py", line 260, in render
+    _dict = self.func(*resolved_args, **resolved_kwargs)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 336, in result_list
+    "results": list(results(cl)),
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 312, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 303, in __init__
+    super().__init__(*items)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 213, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\contrib\admin\utils.py", line 284, in lookup_field
+    value = attr()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\newspaper\news\models.py", line 93, in __str__
+    return f'{self.categoryThrough} | {self.postThrough}'
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 205, in __get__
+    rel_obj = self.get_object(instance)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 168, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 492, in get
+    num = len(clone)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 302, in __len__
+    self._fetch_all()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_category.name_ru
+2022-09-23 16:45:12,976 ERROR "GET /admin/news/postcategory/ HTTP/1.1" 500 524924 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None

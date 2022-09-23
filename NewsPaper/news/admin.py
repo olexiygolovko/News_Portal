@@ -23,6 +23,10 @@ class SubscribersAdmin(admin.ModelAdmin):
     search_fields = (['subscriber'])  # тут всё очень похоже на фильтры из запросов в базу
 
 
+class CategoryAdmin(admin.ModelAdmin):
+    model = Category
+
+
 admin.site.register(Category)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-23 13:31+0300\n"
+"POT-Creation-Date: 2022-09-23 16:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,6 +80,18 @@ msgstr "Delete"
 msgid "Редактировать"
 msgstr "Edit"
 
+#: .\templates\news\news.html:14
+#, fuzzy
+#| msgid "Регистрация"
+msgid "на странице"
+msgstr "Registration"
+
+#: .\templates\news\news.html:14
+#, fuzzy
+#| msgid "Создать публикацию"
+msgid "публикаций"
+msgstr "Create Publication"
+
 #: .\templates\news\news.html:23
 msgid "Подписаться на новости"
 msgstr "Subscribe to the news"
@@ -97,14 +109,3 @@ msgstr "Delete"
 #: .\templates\news\search_news.html:7
 msgid "Критерии поиска"
 msgstr "Search criteria"
-
-#, fuzzy
-#~| msgid "Регистрация"
-#~ msgid "на странице"
-#~ msgstr "Registration"
-
-
-#, fuzzy
-#~| msgid "Создать публикацию"
-#~ msgid "публикаций"
-#~ msgstr "Create Publication"
