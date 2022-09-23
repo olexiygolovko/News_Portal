@@ -5,15 +5,18 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.shortcuts import redirect
 from django.core.cache import cache
+from django.utils.translation import gettext as _
+
+
 import logging
-
-logger = logging.getLogger('news.views')
-
-
 
 from .models import Post, Author, Subscribers
 from .filters import NewsFilter
 from .forms import NewsForm, ProfileForm, SubscribeForm
+
+
+
+logger = logging.getLogger('news.views')
 
 
 class NewsList(ListView):

@@ -1,8 +1,9 @@
 {% extends 'flatpages/default.html' %}
 {% load custom_filter %}
+{% load i18n %}
 
 {% block title %}
-Новость
+{% trans "Новость" %}
 {% endblock title %}
 
 {% block content %}
@@ -20,10 +21,10 @@
 
 <hr>
 {% if is_not_authors %}
-<button> <a href="/sign/upgrade"> Стать автором </a> </button>
+<button> <a href="/sign/upgrade"> {% trans "Стать автором" %}</a> </button>
 {% else %}
-<a class="iksweb" href="{% url 'news_delete' news.id %}"  title="Удалить">Удалить</a>
-<a class="iksweb" href="{% url 'news_edit' news.id %}"  title="Редактировать">Редактировать</a>
+<a class="iksweb" href="{% url 'news_delete' news.id %}"  title="Удалить">{% trans "Удалить" %}</a>
+<a class="iksweb" href="{% url 'news_edit' news.id %}"  title="Редактировать">{% trans "Редактировать" %}</a>
 
 {% endif %}
 

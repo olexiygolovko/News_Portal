@@ -2,15 +2,16 @@
 
 {% load custom_filter %}
 {% load custom_tags %}
+{% load i18n %}
 
 {% block title %}
-<h3>Новости</h3>
+<h3>{% trans "Новости" %}</h3>
 {% endblock title %}
 
 {% block content %}
 <br>
 <p><strong>{% current_time '%A %d %B %Y' %} </strong></p>
-<p><strong>на странице: {{news|length}} публикаций</strong></p>
+<p><strong>{% trans "на странице" %}: {{news|length}} {% trans "публикаций" %}</strong></p>
 <br>
 
 <!--Кнопка поиска, кнопка подписки на категории новостей-->
@@ -18,8 +19,8 @@
 .iksweb{display: inline-block;cursor: pointer; font-size:14px;text-decoration:none;padding:16px 36px; color:#32c74b;background:#ffff0;border-radius:0px;border:2px solid #354251;}
 .iksweb:hover{background:#32c77c;color:#ffffff;border:2px solid #77c732;transition: all 0.2s ease;}
 </style>
-<a class="iksweb" href="search"   title="Поиск">Поиск</a>
-<a class="iksweb" href="subscribe"   title="Подписаться на новости">Подписаться на новости</a>
+<a class="iksweb" href="search"   title={% trans "Поиск" %}>{% trans "Поиск" %}</a>
+<a class="iksweb" href="subscribe"   title={% trans "Подписаться на новости" %}>{% trans "Подписаться на новости" %}</a>
 <hr>
 <!--Вывод новостей-->
 <br>
