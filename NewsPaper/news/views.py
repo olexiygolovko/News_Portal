@@ -6,9 +6,10 @@ from django.contrib.auth.models import User, Group
 from django.shortcuts import redirect
 from django.core.cache import cache
 from django.utils.translation import gettext as _
-
+from django.shortcuts import redirect, render
 
 import logging
+import pytz
 
 from .models import Post, Author, Subscribers
 from .filters import NewsFilter
@@ -166,3 +167,12 @@ class Subscribe(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.subscriber = self.request.user
         return super().form_valid(form)
+
+
+
+def set_timezone(request):
+    if request.method == 'POST':
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('/')
+    else:
+        return render(request, 'template.html', {'timezones': pytz.common_timezones})
