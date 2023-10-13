@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Портал новостей SkillFactory</title>
+        <title>News Portal</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Page title</title>
@@ -22,7 +22,7 @@
         <!-- Responsive navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
    <div class="container">
-       <a class="navbar-brand" href="/">{% trans "Новости SkillFactory" %}</a>
+       <a class="navbar-brand" href="/">{% trans "News Portal" %}</a>
        <button class="navbar-toggler" type="button" data-toggle="collapse"
                data-target="#navbarResponsive"
                aria-controls="navbarResponsive" aria-expanded="false"
@@ -32,43 +32,43 @@
        <div class="collapse navbar-collapse" id="navbarResponsive">
            <ul class="navbar-nav ml-auto">
                <li class="nav-item active">
-                   <a class="nav-link" href="/">{% trans "Главная" %}
+                   <a class="nav-link" href="/">{% trans "Home" %}
                        <span class="sr-only"></span>
                    </a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="/news/">{% trans "Новости" %}</a>
+                   <a class="nav-link" href="/news/">{% trans "News" %}</a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="/news/subscribe/">{% trans "Подписка" %}</a>
+                   <a class="nav-link" href="/news/subscribe/">{% trans "Subscription" %}</a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="/news/search/">{% trans "Поиск" %}</a>
+                   <a class="nav-link" href="/news/search/">{% trans "Search" %}</a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="/news/create/"><div style="text-indent:30px;">{% trans "Создать публикацию" %}</div></a>
+                   <a class="nav-link" href="/news/create/"><div style="text-indent:30px;">{% trans "Create a publication" %}</div></a>
                </li>
                <p class="navbar-nav nav-item" style="font-size: 1.2rem">
                     {% if is_author %}
-                        <a class="nav-link" href="/account/profile/">{% trans "Пользователь:" %} {{ request.user.username }}</a>
-                        <a class="nav-link" href="/accounts/logout">{% trans "Выход" %}</a>
+                        <a class="nav-link" href="/account/profile/">{% trans "User:" %} {{ request.user.username }}</a>
+                        <a class="nav-link" href="/accounts/logout">{% trans "Exit" %}</a>
                     {% elif request.user.pk %}
-                        <a class="nav-link" href="/account/profile/">{% trans "Пользователь:" %} {{ request.user.username }}</a>
-                        <a class="nav-link" href="/accounts/logout">{% trans "Выход" %}</a>
+                        <a class="nav-link" href="/account/profile/">{% trans "User:" %} {{ request.user.username }}</a>
+                        <a class="nav-link" href="/accounts/logout">{% trans "Exit" %}</a>
                     {% else %}
-                        <a class="nav-link" href="/accounts/login/">{% trans "Вход" %}</a>
-                         <a class="nav-link" href="/accounts/signup/">{% trans "Регистрация" %}</a>
+                        <a class="nav-link" href="/accounts/login/">{% trans "Entrance" %}</a>
+                         <a class="nav-link" href="/accounts/signup/">{% trans "Registration" %}</a>
                     {% endif %}
                 </p>
              <form action="{% url 'set_language' %}" method="POST">
-                {% csrf_token %} <!-- Не забываем по csrf_token для POST запросов -->
+                {% csrf_token %} <!-- Don't forget csrf_token for POST requests -->
                 <input type="hidden" name="next" value="{{ redirect_to }}">
 
                 <select name="language" id="">
-                    {% get_available_languages as LANGUAGES %} <!-- получаем языки -->
-                    {% get_language_info_list for LANGUAGES as languages %} <!-- Помещаем их в список languages -->
+                    {% get_available_languages as LANGUAGES %} <!-- we get languages -->
+                    {% get_language_info_list for LANGUAGES as languages %} <!-- We put them in the list of languages -->
 
-                    {% for language in languages %} <!-- Итерируясь по списку, выводим их название на языке пользователя и код -->
+                    {% for language in languages %} <!-- Iterating through the list, we display their name in the user’s language and the code -->
                         <option value="{{ language.code }}"
                                 {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
                                 {{ language.name_local }} - {{ language.code }}
@@ -91,7 +91,7 @@
             </form>
 
             {{ TIME_ZONE }}
-            {{ current_time|timezone:TIME_ZONE }} <!-- Отображаем время в выбранном часовом поясе  -->
+            {{ current_time|timezone:TIME_ZONE }} <!-- Displaying the time in the selected time zone  -->
 
             {% for model in models %}
             <div class="model-class">

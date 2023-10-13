@@ -4,19 +4,19 @@
 {% load custom_tags %}
 
 {% block title %}
-<h3>{% trans "Критерии поиска" %}</h3>
+<h3>{% trans "Search criteria" %}</h3>
 <br>
 {% endblock title %}
 
 {% block content %}
-<!--Фильтр-->
+<!--Filter-->
 
    <form action="" method="get">
        {{ filterset.form.as_p }}
        <input type="submit" value="Найти" />
    </form>
 
-<!--Вывод публикаций-->
+<!--Output of publications-->
 <br>
     {% for new in news %}
         <a href="/news/{{new.id}}"><h4>{{new.title|censor}}</h4></a>
@@ -25,12 +25,12 @@
     {% endfor %}
 <br>
 
-<!--Пагинация-->
+<!--Pagination-->
 {% if is_paginated %}
 
     {% if page_obj.has_previous %}
         <a href="?page=1">First</a>
-        <a href="?page={{ page_obj.previous_page_number }}"><<<</a>
+        <a href="?page={{ page_obj.previous_page_number }}"></a>
     {% endif %}
 
     {% for num in page_obj.paginator.page_range %}

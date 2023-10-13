@@ -9,7 +9,7 @@ register = template.Library()
 def censor(value):
     words = value.split()
     result = []
-    forbidden_words = ['редиска', 'дурак', 'балбес', 'придурок', 'мудак', 'мудаки']
+    forbidden_words = ['radish', 'fool', 'boob', 'moron', 'asshole', 'assholes']
     for word in words:
         if word in forbidden_words:
             result.append(word[0] + "*"*(len(word)-2) + word[-1])

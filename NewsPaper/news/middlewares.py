@@ -8,8 +8,8 @@ class TimezoneMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        tzname = request.session.get('django_timezone')  # пытаемся забрать часовой пояс из сессии
-        #  если он есть в сессии, то выставляем такой часовой пояс. Если же его нет, значит он не установлен, и часовой пояс надо выставить по умолчанию (на время сервера)
+        tzname = request.session.get('django_timezone')  # trying to pick up the time zone from the session
+        #  if it is in the session, then we set this time zone. If it is not there, then it is not installed, and the time zone should be set to default (for server time)
         if tzname:
             timezone.activate(pytz.timezone(tzname))
         else:

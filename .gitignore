@@ -8,3 +8,6 @@ NewsPaper/NewsPaper/__pycache__
 NewsPaper/protect/__pycache__
 NewsPaper/sign/__pycache__
 NewsPaper/.env
+db.sqlite3
+.env
+cache_files

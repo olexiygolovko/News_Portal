@@ -215,7 +215,7 @@ WSGI_APPLICATION = 'NewsPaper.wsgi.application'
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': os.path.join(BASE_DIR, 'cache_files'),  # Указываем, куда будем сохранять кэшируемые файлы!
+        'LOCATION': os.path.join(BASE_DIR, 'cache_files'),  # We indicate where we will save the cached files!
     }
 }
 
@@ -253,10 +253,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en'
 LANGUAGES = [
-    ('ru', 'Русский'),
-    ('en', 'English')
+    ('en', 'English'),
 ]
 
 TIME_ZONE = 'UTC'
@@ -294,19 +293,19 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_FORMS = {'signup': 'sign.forms.BasicSignupForm'}
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.yandex.ru'  # адрес сервера Яндекс-почты для всех один и тот же
-EMAIL_PORT = 465  # порт smtp сервера тоже одинаковый
-EMAIL_HOST_USER = 'ogolovko92'
-EMAIL_HOST_PASSWORD = os.getenv('SECRET_KEY_EMAIL')  # прячем в .env
+EMAIL_HOST = 'smtp.yandex.ru'  # Yandex mail server address is the same for everyone
+EMAIL_PORT = 465  # the server smtp port is also the same
+EMAIL_HOST_USER = os.getenv('EMAIL_USER')  # hide it in.env
+EMAIL_HOST_PASSWORD = os.getenv('SECRET_KEY_EMAIL')  # hide it in .env
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
-DEFAULT_FROM_EMAIL = 'ogolovko92@yandex.ru'
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_EMAIL')
 
-# формат даты, которую будет воспринимать наш задачник
+# date format that our problem book will accept
 APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
-# если задача не выполняется за 25 секунд, то она автоматически снимается, можно поставить время побольше,
-# но как правило, это сильно бьёт по производительности сервера
+# if the task is not completed in 25 seconds, then it is automatically canceled, you can set the time longer,
+# but as a rule, this greatly impacts server performance
 APSCHEDULER_RUN_NOW_TIMEOUT = 25
 
 CELERY_BROKER_URL = 'redis://localhost:6379/0'

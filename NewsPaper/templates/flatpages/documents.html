@@ -1,8 +1,8 @@
 {% extends 'flatpages/default.html' %}
 {% load i18n %}
 
-{% load cache %} <!-- Загружаем кэширование -->
-    {% cache 30 header %} <!-- Кэшируем отдельный блок на 30 секунд -->
+{% load cache %} <!-- Loading caching -->
+    {% cache 30 header %} <!-- Cache a separate block for 30 seconds -->
         {% block header %}
         {% endblock header %}
     {% endcache %}

@@ -30,7 +30,7 @@ def news_sender():
 
             date_format = news.get('dateCreation').strftime("%d/%m/%Y")
             new = (f' http://127.0.0.1:8000/news/{news.get("pk")}, {news.get("title")}, '
-                   f'Категория: {news.get("postCategory__name")}, Дата создания: {date_format}')
+                   f'Category: {news.get("postCategory__name")}, Date of creation:{date_format}')
 
             news_from_each_category.append(new)
 
@@ -44,7 +44,7 @@ def news_sender():
                                                     'week_number_last': week_number_last})
 
             msg = EmailMultiAlternatives(
-                subject=f'Здравствуй, {subscriber.username}, новые статьи за прошлую неделю в вашем разделе!',
+                subject=f'Hello, {subscriber.username}, new articles for last week in your section!',
                 from_email='ogolovko92@yandex.ru',
                 to=[subscriber.email]
             )
@@ -66,30 +66,31 @@ class Command(BaseCommand):
         scheduler = BlockingScheduler(timezone=settings.TIME_ZONE)
         scheduler.add_jobstore(DjangoJobStore(), "default")
 
-        # добавляем работу нашему задачнику
+        # adding work to our problem book
         scheduler.add_job(
             news_sender,
 
-            # для проверки отправки временно задано время срабатывания каждые 10 секунд
+            # to check sending, the response time is temporarily set to every 10 seconds
             # trigger=CronTrigger(second="*/30"),
 
-            # отправляем письма подписчикам в понедельник в 8 утра
+            # We send emails to subscribers on Monday at 8 am
             trigger=CronTrigger(day_of_week="mon", hour="08", minute="00"),
 
-            # То же, что и интервал, но задача тригера таким образом более понятна django
-            id="news_sender",  # уникальный айди
+            # Same as interval, but the trigger's task is thus more clear to django
+            id="news_sender",  # unique ID
             max_instances=1,
             replace_existing=True,
         )
-        logger.info("Добавлена работка 'news_sender'.")
+        logger.info("Added work 'news_sender'.")
 
         scheduler.add_job(
             delete_old_job_executions,
             trigger=CronTrigger(
                 day_of_week="mon", hour="19", minute="00"
             ),
-            # Каждую неделю будут удаляться старые задачи, которые либо не удалось выполнить,
-            # либо уже выполнять не надо.
+            # Every week old tasks that either could not be completed will be deleted
+            # or there is no need to execute it anymore.
+
             id="delete_old_job_executions",
             max_instances=1,
             replace_existing=True,
@@ -99,11 +100,11 @@ class Command(BaseCommand):
         )
 
         try:
-            logger.info("Задачник запущен")
-            print('Задачник запущен')
+            logger.info("The task book is running")
+            print('The task book is running')
             scheduler.start()
         except KeyboardInterrupt:
-            logger.info("Задачник остановлен")
+            logger.info("Problem book stopped")
             scheduler.shutdown()
-            print('Задачник остановлен')
-            logger.info("Задачник остановлен успешно!")
+            print('Problem book stopped')
+            logger.info("The task manager stopped successfully!")

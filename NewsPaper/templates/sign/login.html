@@ -1,7 +1,7 @@
 {% extends 'flatpages/default.html' %}
 
 {% block content %}
-<h2> Войти в систему </h2>
+<h2> Sign in </h2>
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
 <table>
@@ -15,7 +15,7 @@
 </tr>
 </table>
 
-<input type="submit" value="Войти">
+<input type="submit" value="To come in">
 </form>
-<button> <a href="/sign/signup"> Регистрация </a></button>
+<button> <a href="/sign/signup"> Registration </a></button>
 {% endblock %}

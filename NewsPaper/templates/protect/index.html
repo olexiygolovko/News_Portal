@@ -2,15 +2,15 @@
 
 {% block content %}
 <br/><br/>
-<h2>Страница авторизованного пользователя {{request.user.username}}</h2>
+<h2>Authorized user page {{request.user.username}}</h2>
 <div>  </div>
 <hr>
 {% if is_authors and is_not_authors %}
-<h2>Статус - Автор</h2>
+<h2>Status - Author</h2>
 {% else %}
-<button> <a href="/sign/upgrade"> Стать автором </a> </button>
-<h2>Статус - Пользователь</h2>
+<button> <a href="/sign/upgrade"> Become an author </a> </button>
+<h2>Status - User</h2>
 {% endif %}
 <hr>
-<button> <a href="/sign/logout">Выйти</a> </button>
+<button> <a href="/sign/logout">Go out</a> </button>
 {% endblock %}

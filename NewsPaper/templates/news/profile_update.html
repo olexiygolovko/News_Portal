@@ -3,11 +3,11 @@
 {% block title %} Your profile {% endblock title %}
 
 {% block content %}
-<h3> Редактирование профиля </h3>
+<h3> Editing your profile </h3>
 <hr>
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Сохранить">
+    <input type="submit" value="Save">
 </form>
 {% endblock content %}

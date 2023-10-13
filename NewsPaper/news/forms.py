@@ -11,11 +11,11 @@ class NewsForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(NewsForm, self).__init__(*args, **kwargs)
-        self.fields['author'].label = 'Имя автора'
-        self.fields['categoryType'].label = 'Вид публикации'
-        self.fields['postCategory'].label = 'Категории'
-        self.fields['title'].label = 'Заголовок'
-        self.fields['text'].label = 'Текст'
+        self.fields['author'].label = "Author's name"
+        self.fields['categoryType'].label = 'Publication type'
+        self.fields['postCategory'].label = 'Categories'
+        self.fields['title'].label = 'Heading'
+        self.fields['text'].label = 'Text'
 
 
     class Meta:
@@ -29,7 +29,7 @@ class NewsForm(forms.ModelForm):
 
         if title == text:
             raise ValidationError(
-                "Описание не должно быть идентично названию."
+                "The description should not be identical to the title."
             )
 
         return cleaned_data

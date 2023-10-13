@@ -22,7 +22,7 @@ def weekly_post_mail():
 
             date_format = news.get('dateCreation').strftime("%d/%m/%Y")
             new = (f' http://127.0.0.1:8000/news/{news.get("pk")}, {news.get("title")}, '
-                   f'Категория: {news.get("postCategory__name")}, Дата создания: {date_format}')
+                   f'Категория: {news.get("postCategory__name")}, Date of creation: {date_format}')
 
             news_from_each_category.append(new)
 
@@ -36,7 +36,7 @@ def weekly_post_mail():
                                                     'week_number_last': week_number_last})
 
             msg = EmailMultiAlternatives(
-                subject=f'Здравствуй, {subscriber.username}, новые статьи за прошлую неделю в вашем разделе!',
+                subject=f'Hello, {subscriber.username}, new articles for last week in your section!',
                 from_email='ogolovko92@yandex.ru',
                 to=[subscriber.email]
             )

@@ -5,7 +5,7 @@ from modeltranslation.translator import register, TranslationOptions
 
 @register(Post)
 class PostTranslationOptions(TranslationOptions):
-    fields = ('title', 'text')  # указываем, какие именно поля надо переводить в виде кортежа
+    fields = ('title', 'text')  # indicate which fields should be translated as a tuple
 
 
 @register(Category)

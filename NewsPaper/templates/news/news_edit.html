@@ -2,11 +2,11 @@
 {% load i18n %}
 
 {% block content %}
-<h1>{% trans "Создать публикацию" %}</h1>
+<h1>{% trans "Create a publication" %}</h1>
 <hr>
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Сохранить" />
+    <input type="submit" value="Save" />
 </form>
 {% endblock content %}

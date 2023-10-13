@@ -15,30 +15,30 @@ class NewsFilter(FilterSet):
             }
         )
 
-    # Для автора можно сделать и множественный выбор:
+    # You can also make multiple selections for the author.:
     # author = ModelMultipleChoiceFilter(
     #     field_name='author',
     #     queryset=Author.objects.all(),
-    #     label='Автор',
+    #     label='Author',
     #     conjoined=False,
     # )
 
     author = ChoiceFilter(
         field_name='author',
-        label='Имя автора',
-        empty_label='Все'
+        label="Author's name",
+        empty_label='All'
     )
 
     title = CharFilter(
         field_name='title',
         lookup_expr='icontains',
-        label='Заголовок статьи'
+        label='Article title'
     )
 
     data = DateFilter(
         field_name='dateCreation',
         lookup_expr='gt',
-        label='Опубликовано не ранее',
+        label='Published no earlier',
         widget=DateInput(format='%d.%m.%Y',
                          attrs={'type': 'date'})
     )

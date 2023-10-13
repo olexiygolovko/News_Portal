@@ -6,8 +6,8 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 
 
-# в декоратор передаётся первым аргументом сигнал, на который будет реагировать эта функция, и в отправители надо
-# передать также модель
+# the signal to which this function will react is passed to the decorator as the first argument, and to the senders it is necessary
+# also pass the model
 
 @receiver(m2m_changed, sender=PostCategory)
 def notify_subscriber(sender, instance, **kwargs):

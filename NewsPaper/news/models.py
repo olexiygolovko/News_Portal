@@ -25,8 +25,8 @@ class Author(models.Model):
 
 
     class Meta:
-        verbose_name = 'Автор'
-        verbose_name_plural = 'Авторы'
+        verbose_name = 'Author'
+        verbose_name_plural = 'Authors'
 
 
 
@@ -39,8 +39,8 @@ class Category(models.Model):
 
 
     class Meta:
-        verbose_name = 'Категория'
-        verbose_name_plural = 'Категории'
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
 
 
 class Post(models.Model):
@@ -49,8 +49,8 @@ class Post(models.Model):
     NEWS = 'NW'
     ARTICLE = 'AR'
     CATEGORY_CHOICES = (
-        (NEWS, 'Новость'),
-        (ARTICLE, 'Статья'),
+        (NEWS, 'News'),
+        (ARTICLE, 'Article'),
     )
     categoryType = models.CharField(max_length=2, choices=CATEGORY_CHOICES, default=ARTICLE)
     dateCreation = models.DateTimeField(auto_now_add=True)
@@ -75,14 +75,14 @@ class Post(models.Model):
 
 
     class Meta:
-        verbose_name = 'Новость'
-        verbose_name_plural = 'Новости'
+        verbose_name = 'News'
+        verbose_name_plural = 'News'
 
     def get_absolute_url(self):
         return reverse('new_detail', args=[str(self.id)])
 
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)  # вызываем метод родителя, чтобы объект сохранился
+        super().save(*args, **kwargs)  # Call the parent method to save the object
 
 
 class PostCategory(models.Model):
@@ -94,8 +94,8 @@ class PostCategory(models.Model):
 
 
     class Meta:
-        verbose_name = 'Категория новости'
-        verbose_name_plural = 'Категории новостей'
+        verbose_name = 'News category'
+        verbose_name_plural = 'News categories'
 
 
 class Comment(models.Model):
@@ -118,8 +118,8 @@ class Comment(models.Model):
 
 
     class Meta:
-        verbose_name = 'Комментарий'
-        verbose_name_plural = 'Комментарии'
+        verbose_name = 'Comment'
+        verbose_name_plural = 'Comments'
 
 
 class Subscribers(models.Model):
@@ -131,5 +131,5 @@ class Subscribers(models.Model):
 
 
     class Meta:
-        verbose_name = 'Подписка'
-        verbose_name_plural = 'Подписки'
+        verbose_name = 'Subscription'
+        verbose_name_plural = 'Subscriptions'

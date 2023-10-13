@@ -8,8 +8,8 @@ from django.contrib.auth.models import Group
 
 class BaseRegisterForm(UserCreationForm):
     email = forms.EmailField(label="Email")
-    first_name = forms.CharField(label="Имя")
-    last_name = forms.CharField(label="Фамилия")
+    first_name = forms.CharField(label="Name")
+    last_name = forms.CharField(label="Surname")
 
     class Meta:
         model = User

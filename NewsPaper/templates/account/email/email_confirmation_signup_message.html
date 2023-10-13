@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    {% load account %} <!-- Загружаем тег который позволит получить нам ссылку на подтверждение -->
-    <h1>Спасибо за регистрацию {{ user.username }}!</h1>
-    <h3>Перейдите <a href="{{ activate_url }}">по этой ссылке</a> для активации аккаунта на NewsPortal</h3>
-     <!-- Вставляем ссылку на активацию -->
+    {% load account %} <!-- Upload a tag that will allow us to receive a confirmation link -->
+    <h1>Thank you for registering {{ user.username }}!</h1>
+    <h3>Go to the <a href="{{ activate_url }}">this link</a> to activate your account on NewsPortal</h3>
+     <!-- Insert the activation link -->
 </body>
 </html>

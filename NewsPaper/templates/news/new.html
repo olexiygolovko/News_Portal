@@ -3,12 +3,12 @@
 {% load i18n %}
 
 {% block title %}
-{% trans "Новость" %}
+{% trans "News" %}
 {% endblock title %}
 
 {% block content %}
 <style>
-.iksweb{display: inline-block;cursor: pointer; font-size:14px;text-decoration:none;padding:16px 36px; color:#32c74b;background:#ffff0;border-radius:0px;border:2px solid #354251;}
+.iksweb{display: inline-block;cursor: pointer; font-size:14px;text-decoration:none;padding:16px 36px; color:#32c74b;background:#ffff;border-radius:0px;border:2px solid #354251;}
 .iksweb:hover{background:#32c77c;color:#ffffff;border:2px solid #77c732;transition: all 0.2s ease;}
 </style>
 <h4> {{ news.title|censor}}</h4>
@@ -21,10 +21,10 @@
 
 <hr>
 {% if is_not_authors %}
-<button> <a href="/sign/upgrade"> {% trans "Стать автором" %}</a> </button>
+<button> <a href="/sign/upgrade"> {% trans "Become an author" %}</a> </button>
 {% else %}
-<a class="iksweb" href="{% url 'news_delete' news.id %}"  title="Удалить">{% trans "Удалить" %}</a>
-<a class="iksweb" href="{% url 'news_edit' news.id %}"  title="Редактировать">{% trans "Редактировать" %}</a>
+<a class="iksweb" href="{% url 'news_delete' news.id %}"  title="Delete">{% trans "Delete" %}</a>
+<a class="iksweb" href="{% url 'news_edit' news.id %}"  title="Edit">{% trans "Edit" %}</a>
 
 {% endif %}
 

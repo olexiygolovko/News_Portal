@@ -28,19 +28,19 @@ class NewsList(ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        # Получаем обычный запрос
+        # We receive a regular request
         queryset = super().get_queryset()
-        # Используем наш класс фильтрации.
-        # self.request.GET содержит объект QueryDict,
-        # Сохраняем нашу фильтрацию в объекте класса,
-        # чтобы потом добавить в контекст и использовать в шаблоне.
+        # Let's use our filtering class.
+        # self.request.GET contains an object QueryDict,
+        # We save our filtering in a class object,
+        # so that you can then add it to the context and use it in the template.
         self.filterset = NewsFilter(self.request.GET, queryset)
-        # Возвращаем из функции отфильтрованный список товаров
+        #Returning a filtered list of products from the function
         return self.filterset.qs
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Добавляем в контекст объект фильтрации.
+        # Add a filtering object to the context.
         context['filterset'] = self.filterset
         return context
 
@@ -50,12 +50,12 @@ class NewsDetail(DetailView):
     template_name = 'news/new.html'
     context_object_name = 'news'
 
-    def get_object(self, *args, **kwargs):  # переопределяем метод получения объекта, как ни странно
+    def get_object(self, *args, **kwargs):  # override the object receiving method, oddly enough
 
         obj = cache.get(f'news-{self.kwargs["pk"]}',
-                        None)  # кэш очень похож на словарь, и метод get действует так же. Он забирает значение по ключу, если его нет, то забирает None.
+                        None)  # a cache is very similar to a dictionary, and the get method works the same way. It takes the value by key, if it does not exist, then it takes None.
 
-        # если объекта нет в кэше, то получаем его и записываем в кэш
+        # if the object is not in the cache, then we get it and write it to the cache
         if not obj:
             obj = super().get_object(queryset=self.queryset)
             cache.set(f'news-{self.kwargs["pk"]}', obj)
@@ -79,7 +79,7 @@ class NewsSearchView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Добавляем в контекст объект фильтрации.
+        # Add a filtering object to the context.
         context['filterset'] = self.filterset
         return context
 

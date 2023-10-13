@@ -871,3 +871,784 @@ Traceback (most recent call last):
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'set_timezone' not found. 'set_timezone' is not a valid view function or pattern name.
 2022-09-25 23:15:57,239 ERROR "GET / HTTP/1.1" 500 158312 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2023-10-06 18:40:07,672 ERROR Internal Server Error: /news/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.title_pl'), <traceback object at 0x0000017215E79600>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.title_pl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 739, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\defaultfilters.py", line 611, in length
+    return len(value)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 302, in __len__
+    self._fetch_all()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.title_pl
+2023-10-06 18:40:07,702 ERROR "GET /news/ HTTP/1.1" 500 222946 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2023-10-06 18:40:14,676 ERROR Internal Server Error: /news/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.title_pl'), <traceback object at 0x0000017216051A00>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.title_pl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 739, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\defaultfilters.py", line 611, in length
+    return len(value)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 302, in __len__
+    self._fetch_all()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.title_pl
+2023-10-06 18:40:14,678 ERROR "GET /news/ HTTP/1.1" 500 222983 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2023-10-06 18:47:34,085 ERROR Internal Server Error: /news/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.title_pl'), <traceback object at 0x0000017216059040>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.title_pl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 739, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\defaultfilters.py", line 611, in length
+    return len(value)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 302, in __len__
+    self._fetch_all()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.title_pl
+2023-10-06 18:47:34,088 ERROR "GET /news/ HTTP/1.1" 500 222937 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2023-10-06 18:47:35,940 ERROR Internal Server Error: /news/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.title_pl'), <traceback object at 0x00000172161E6700>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.title_pl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 739, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\defaultfilters.py", line 611, in length
+    return len(value)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 302, in __len__
+    self._fetch_all()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.title_pl
+2023-10-06 18:47:35,946 ERROR "GET /news/ HTTP/1.1" 500 222937 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2023-10-06 18:48:19,478 ERROR Internal Server Error: /news/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.title_pl'), <traceback object at 0x000001592F2539C0>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.title_pl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 739, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\defaultfilters.py", line 611, in length
+    return len(value)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 302, in __len__
+    self._fetch_all()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.title_pl
+2023-10-06 18:48:19,502 ERROR "GET /news/ HTTP/1.1" 500 222937 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2023-10-06 18:48:20,923 ERROR Internal Server Error: /news/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.title_pl'), <traceback object at 0x000001592EF4C580>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.title_pl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 739, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\defaultfilters.py", line 611, in length
+    return len(value)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 302, in __len__
+    self._fetch_all()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.title_pl
+2023-10-06 18:48:20,925 ERROR "GET /news/ HTTP/1.1" 500 222937 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2023-10-06 18:50:27,698 ERROR Internal Server Error: /accounts/login/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'KeyError'>, KeyError('Unknown language code pln.'), <traceback object at 0x000001DCCAE9B740>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\translation\__init__.py", line 272, in get_language_info
+    lang_info = LANG_INFO[lang_code]
+KeyError: 'pln'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\templatetags\i18n.py", line 50, in render
+    context[self.variable] = [self.get_language_info(lang) for lang in langs]
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\templatetags\i18n.py", line 50, in <listcomp>
+    context[self.variable] = [self.get_language_info(lang) for lang in langs]
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\templatetags\i18n.py", line 44, in get_language_info
+    return translation.get_language_info(language[0])
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\translation\__init__.py", line 279, in get_language_info
+    raise KeyError("Unknown language code %s." % lang_code)
+KeyError: 'Unknown language code pln.'
+2023-10-06 18:50:27,711 ERROR "GET /accounts/login/?next=/news/subscribe/ HTTP/1.1" 500 197455 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2023-10-13 23:43:06,676 ERROR Internal Server Error: /news/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Could not parse the remainder: '{%' from '{%'"), <traceback object at 0x0000028C72A4A280>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\engine.py", line 176, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\engine.py", line 158, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\library.py", line 132, in compile_func
+    args, kwargs = parse_bits(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\library.py", line 349, in parse_bits
+    args.append(parser.compile_filter(bit))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 701, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '{%' from '{%'
+2023-10-13 23:43:06,708 ERROR "GET /news/ HTTP/1.1" 500 233624 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2023-10-13 23:43:23,179 ERROR Internal Server Error: /news/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Could not parse the remainder: '{%' from '{%'"), <traceback object at 0x0000028C728FE880>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\engine.py", line 176, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\engine.py", line 158, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\library.py", line 132, in compile_func
+    args, kwargs = parse_bits(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\library.py", line 349, in parse_bits
+    args.append(parser.compile_filter(bit))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 701, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '{%' from '{%'
+2023-10-13 23:43:23,179 ERROR "GET /news/ HTTP/1.1" 500 233616 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2023-10-13 23:43:24,397 ERROR Internal Server Error: /news/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Could not parse the remainder: '{%' from '{%'"), <traceback object at 0x0000028C72A39B80>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\engine.py", line 176, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\engine.py", line 158, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\library.py", line 132, in compile_func
+    args, kwargs = parse_bits(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\library.py", line 349, in parse_bits
+    args.append(parser.compile_filter(bit))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 701, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '{%' from '{%'
+2023-10-13 23:43:24,397 ERROR "GET /news/ HTTP/1.1" 500 233616 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2023-10-13 23:43:49,148 ERROR Internal Server Error: /news/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError('Unknown argument for \'trans\' tag: \'\'%A %d %B %Y\'\'. The only options available are \'noop\', \'context\' "xxx", and \'as VAR\'.'), <traceback object at 0x0000028C729E7940>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\engine.py", line 176, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\engine.py", line 158, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\templatetags\i18n.py", line 442, in do_translate
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Unknown argument for 'trans' tag: ''%A %d %B %Y''. The only options available are 'noop', 'context' "xxx", and 'as VAR'.
+2023-10-13 23:43:49,148 ERROR "GET /news/ HTTP/1.1" 500 209127 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None
+2023-10-13 23:43:50,466 ERROR Internal Server Error: /news/ D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError('Unknown argument for \'trans\' tag: \'\'%A %d %B %Y\'\'. The only options available are \'noop\', \'context\' "xxx", and \'as VAR\'.'), <traceback object at 0x0000028C72A1A080>)
+Traceback (most recent call last):
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\engine.py", line 176, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\engine.py", line 158, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\templatetags\i18n.py", line 442, in do_translate
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Unknown argument for 'trans' tag: ''%A %d %B %Y''. The only options available are 'noop', 'context' "xxx", and 'as VAR'.
+2023-10-13 23:43:50,466 ERROR "GET /news/ HTTP/1.1" 500 209127 D:\I am in Moskow\PYTHON\SkillFactory\D_2.4\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py None

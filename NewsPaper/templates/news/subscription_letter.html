@@ -5,8 +5,8 @@
     <title>Subscription letter</title>
 </head>
 <body>
-<h2>{{ person.subscriber }} Новая статья в вашей любимой категории {{cat}}!</h2>
+<h2>{{ person.subscriber }} New article in your favorite category {{cat}}!</h2>
     <p> {{post.text}} </p>
-<p> Ссылка на статью: <a href="http://127.0.0.1:8000{% url 'new_detail' post.id %}">тут</a></p>
+<p> Link to article: <a href="http://127.0.0.1:8000{% url 'new_detail' post.id %}">here</a></p>
 </body>
 </html>
